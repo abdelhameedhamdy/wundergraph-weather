@@ -14,8 +14,8 @@ export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
             ...hook.response,
             data: {
               weather_getCityByName: {
-                ...hook.response.data?.weather_getCityByName,
-                country: "test",
+                country:
+                  hook.response.data?.weather_getCityByName?.country?.toLocaleLowerCase(),
               },
             },
           };
