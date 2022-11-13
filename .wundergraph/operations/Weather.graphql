@@ -17,6 +17,8 @@ query ($city: String!) {
         description
         icon
       }
+      feelsLike
+      max
     }
   }
 }
