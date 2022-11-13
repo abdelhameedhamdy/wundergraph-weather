@@ -5,7 +5,6 @@ query ($city: String!) {
       lon
     }
     country
-    feelsLike
     weather {
       temperature {
         actual
