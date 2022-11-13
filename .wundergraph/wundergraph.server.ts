@@ -9,6 +9,18 @@ export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
         postResolve: async (hook) => {
           hook.log.info("postResolve hook for Weather");
         },
+        mutatingPostResolve: async (hook) => {
+          return {
+            ...hook.response,
+            data: {
+              weather_getCityByName: {
+                ...hook.response.data?.weather_getCityByName,
+                country:
+                  hook.response.data?.weather_getCityByName?.country?.toLocaleLowerCase(),
+              },
+            },
+          };
+        },
       },
     },
     mutations: {},
