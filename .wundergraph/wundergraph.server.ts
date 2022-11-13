@@ -10,13 +10,13 @@ export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
           hook.log.info("postResolve hook for Weather");
         },
         mutatingPostResolve: async (hook) => {
+          const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
           return {
             ...hook.response,
             data: {
               weather_getCityByName: {
                 ...hook.response.data?.weather_getCityByName,
-                country:
-                  hook.response.data?.weather_getCityByName?.country?.toLocaleLowerCase(),
+                country: regionNames.of("US"),
               },
             },
           };
