@@ -20,7 +20,10 @@ export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
                   hook.response.data?.weather_getCityByName?.country!
                 ),
                 weather: {
+                  ...hook.response.data?.weather_getCityByName?.weather,
                   temperature: {
+                    ...hook.response.data?.weather_getCityByName?.weather
+                      ?.temperature,
                     actual: Math.round(
                       hook.response.data?.weather_getCityByName?.weather
                         ?.temperature?.actual!
