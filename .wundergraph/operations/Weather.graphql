@@ -5,6 +5,7 @@ query ($city: String!) {
       lon
     }
     country
+    feelsLike
     weather {
       temperature {
         actual
@@ -17,8 +18,6 @@ query ($city: String!) {
         description
         icon
       }
-      feelsLike
-      max
     }
   }
 }
