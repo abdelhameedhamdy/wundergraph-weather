@@ -19,6 +19,14 @@ export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
                 country: regionNames.of(
                   hook.response.data?.weather_getCityByName?.country!
                 ),
+                weather: {
+                  temperature: {
+                    actual: Math.round(
+                      hook.response.data?.weather_getCityByName?.weather
+                        ?.temperature?.actual!
+                    ),
+                  },
+                },
               },
             },
           };
