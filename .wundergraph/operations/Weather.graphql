@@ -5,6 +5,7 @@ query ($city: String!) {
       lon
     }
     country
+    name
     weather {
       temperature {
         actual
